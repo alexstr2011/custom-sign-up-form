@@ -43,19 +43,21 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
             </div>
             {
                 isOpen && options.length &&
-                (<div className={styles.options}>
-                    {
-                        options.map(option =>
-                            <button
-                                className={styles.optionButton}
-                                onClick={optionClickHandler}
-                                data-option={option}
-                                key={option}
-                            >
-                                {option}
-                            </button>)
-                    }
-                </div>)
+                (
+                    <div className={styles.options}>
+                        {
+                            options.map(option =>
+                                <button
+                                    className={styles.optionButton}
+                                    onClick={optionClickHandler}
+                                    data-option={option}
+                                    key={option}
+                                >
+                                    {option}
+                                </button>)
+                        }
+                    </div>
+                )
             }
         </div>
     );

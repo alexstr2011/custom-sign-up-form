@@ -1,11 +1,12 @@
 import React from "react";
-import {ReactComponent as CheckMark} from '../../images/check-mark.svg';
 import Dropdown from "../ui/dropdown/dropdown";
 import styles from './app.module.css';
+import Checkbox from "../ui/checkbox/checkbox";
 
 function App() {
     const languages = ['Русский', 'Английский', 'Китайский', 'Испанский'];
     const [language, setLanguage] = React.useState(null);
+    const [acceptUseTerms, setAcceptUseTerms] = React.useState(false);
 
     return (
         <div className={styles.wrapper}>
@@ -14,6 +15,10 @@ function App() {
                 options={languages}
                 callback={setLanguage}
                 chosenOption={language}
+            />
+            <Checkbox
+                checked={acceptUseTerms}
+                callback={setAcceptUseTerms}
             />
         </div>
     );
