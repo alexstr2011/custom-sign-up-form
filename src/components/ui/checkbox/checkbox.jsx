@@ -15,7 +15,7 @@ const Checkbox = ({checked, callback}) => {
     }
 
     return (
-        <button onClick={clickHandler} className={classesButton.join(' ')}>
+        <button onClick={clickHandler} className={classesButton.join(' ')} type='button'>
             <CheckMark className={classesIcon.join(' ')}/>
         </button>
     );

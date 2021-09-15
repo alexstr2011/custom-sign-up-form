@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './input.module.css';
 
-const Input = ({value, callback, title, placeholder, error='12345', mt, mb}) => {
+const Input = ({value, callback, title, placeholder, error, mt, mb, type='text'}) => {
     const style = {};
     if (mt) {
         style.marginTop = mt;
@@ -19,6 +19,7 @@ const Input = ({value, callback, title, placeholder, error='12345', mt, mb}) => 
                     onChange={e => callback(e.currentTarget.value)}
                     className={styles.input}
                     placeholder={placeholder}
+                    type={type}
                 />
                 <p className={styles.error}>{error}</p>
             </label>

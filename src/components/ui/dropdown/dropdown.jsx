@@ -19,7 +19,6 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
     }, [setIsOpen]);
 
     const fieldClickHandler = (e) => {
-        console.log('click');
         setIsOpen(!isOpen);
         e.stopPropagation();
     }

@@ -4,6 +4,7 @@ import Dropdown from "../ui/dropdown/dropdown";
 import Checkbox from "../ui/checkbox/checkbox";
 import Input from "../ui/input/input";
 import Button from "../ui/button/button";
+import * as validator from '../../data/validators';
 
 const RegistrationForm = () => {
     const languages = ['Русский', 'Английский', 'Китайский', 'Испанский'];
@@ -18,6 +19,10 @@ const RegistrationForm = () => {
         console.log('Submit form');
     };
 
+    const isNameValid = name && validator.nameValidator(name);
+    const isEmailValid = email && validator.emailValidator(email);
+    const isPhoneValid = phone && validator.phoneValidator(phone);
+
     return (
         <form onSubmit={submitHandler} className={styles.wrapper}>
             <h1 className={styles.title}>Регистрация</h1>
@@ -30,6 +35,7 @@ const RegistrationForm = () => {
                 callback={setName}
                 title='Имя'
                 placeholder='Введите Ваше имя'
+                error={!name || isNameValid ? '' : 'Введено не корректное значение'}
                 mt='57px'
             />
             <Input
@@ -37,15 +43,19 @@ const RegistrationForm = () => {
                 callback={setEmail}
                 title='Еmail'
                 placeholder='Введите ваш email'
+                error={!email || isEmailValid ? '' : 'Введено не корректное значение'}
                 mt='34px'
+                type='email'
             />
             <Input
                 value={phone}
                 callback={setPhone}
                 title='Номер телефона'
                 placeholder='Введите номер телефона'
+                error={!phone || isPhoneValid ? '' : 'Введено не корректное значение'}
                 mt='34px'
                 mb='34px'
+                type='tel'
             />
             <Dropdown
                 title='Язык'
@@ -62,7 +72,10 @@ const RegistrationForm = () => {
                     Принимаю <a href='/#' className={styles.link}>условия</a> использования
                 </span>
             </label>
-            <Button title='Зарегистрироваться' type='Submit' />
+            <Button
+                disabled = {!(isNameValid && isEmailValid && isPhoneValid && language && acceptUseTerms)}
+                title='Зарегистрироваться'
+                type='Submit' />
         </form>
     );
 }
