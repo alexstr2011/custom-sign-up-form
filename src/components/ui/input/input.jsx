@@ -1,18 +1,18 @@
 import React from "react";
 import styles from './input.module.css';
 
-const Input = ({value, callback, title, placeholder, error=''}) => {
+const Input = ({value, callback, title, placeholder, error='12345'}) => {
     return (
         <div>
             <label className={styles.label}>
-                <span className={styles.title}>{title}</span>
+                <h3 className={styles.title}>{title}</h3>
                 <input
                     value={value}
                     onChange={e => callback(e.currentTarget.value)}
                     className={styles.input}
                     placeholder={placeholder}
                 />
-                <span className={styles.error}>{error}</span>
+                <p className={styles.error}>{error}</p>
             </label>
         </div>
     );

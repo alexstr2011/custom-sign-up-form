@@ -18,7 +18,8 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
 
     }, [setIsOpen]);
 
-    const titleClickHandler = (e) => {
+    const fieldClickHandler = (e) => {
+        console.log('click');
         setIsOpen(!isOpen);
         e.stopPropagation();
     }
@@ -28,16 +29,19 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
         setIsOpen(false);
     }
 
-    const titleButtonClasses = [styles.titleButton];
-    if (isOpen || chosenOption) {
-        titleButtonClasses.push(styles.titleButtonActive);
+    const fieldButtonClasses = [styles.fieldButton];
+    if (isOpen) {
+        fieldButtonClasses.push(styles.fieldButtonActive);
+    } else if (chosenOption) {
+        fieldButtonClasses.push(styles.fieldButtonChosen)
     }
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.title} onClick={titleClickHandler}>
-                <button className={titleButtonClasses.join(' ')}>
-                    {title}
+            <h3 className={styles.title}>{title}</h3>
+            <div className={styles.field} onClick={fieldClickHandler}>
+                <button className={fieldButtonClasses.join(' ')} type='button'>
+                    {chosenOption || title}
                 </button>
                 <ArrowDown className={styles.icon}/>
             </div>
@@ -51,6 +55,7 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
                                     className={styles.optionButton}
                                     onClick={optionClickHandler}
                                     data-option={option}
+                                    type='button'
                                     key={option}
                                 >
                                     {option}

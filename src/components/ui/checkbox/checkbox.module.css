@@ -8,6 +8,7 @@
     border-radius: 4px;
     outline: none;
     cursor: pointer;
+    background-color: #FFF;
 }
 
 .button:focus, .buttonChecked {
