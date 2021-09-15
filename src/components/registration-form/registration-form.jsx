@@ -22,26 +22,30 @@ const RegistrationForm = () => {
         <form onSubmit={submitHandler} className={styles.wrapper}>
             <h1 className={styles.title}>Регистрация</h1>
             <p>
-                <span className={styles.inscriptionHasAccount}>Уже есть аккаунт?</span>
-                <a href='/#' className={styles.linkEnter}>Войти</a>
+                <span className={styles.hasAccountInscription}>Уже есть аккаунт?</span>
+                <a href='/#' className={styles.link}>Войти</a>
             </p>
             <Input
                 value={name}
                 callback={setName}
                 title='Имя'
                 placeholder='Введите Ваше имя'
+                mt='57px'
             />
             <Input
                 value={email}
                 callback={setEmail}
                 title='Еmail'
                 placeholder='Введите ваш email'
+                mt='34px'
             />
             <Input
                 value={phone}
                 callback={setPhone}
                 title='Номер телефона'
                 placeholder='Введите номер телефона'
+                mt='34px'
+                mb='34px'
             />
             <Dropdown
                 title='Язык'
@@ -49,12 +53,16 @@ const RegistrationForm = () => {
                 callback={setLanguage}
                 chosenOption={language}
             />
-            <label>12345
+            <label className={styles.acceptTermsLabel}>
                 <Checkbox
                     checked={acceptUseTerms}
                     callback={setAcceptUseTerms}
-                />12345</label>
-            <Button title='Зарегистрироваться' type='Submit'/>
+                />
+                <span className={styles.acceptTermsInscription}>
+                    Принимаю <a href='/#' className={styles.link}>условия</a> использования
+                </span>
+            </label>
+            <Button title='Зарегистрироваться' type='Submit' />
         </form>
     );
 }

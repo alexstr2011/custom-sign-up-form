@@ -10,6 +10,7 @@
     font-size: 16px;
     color: #756F86;
     width: 100%;
+    margin-bottom: 7px;
 }
 
 .field {
@@ -33,9 +34,11 @@
     font-weight: 400;
     font-size: 16px;
     color: #7C9CBF;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    box-shadow: 0 4px 8px rgba(44, 39, 56, 0.04);
     outline: none;
     background-color: #FFF;
+    text-align: left;
+    padding-left: 16px;
 }
 
 .fieldButtonActive, .fieldButton:focus {
@@ -51,10 +54,10 @@
     width: 100%;
     border: 1px solid #DBE2EA;
     border-radius: 6px;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04), 0px 20px 20px rgba(44, 39, 56, 0.04);
+    box-shadow: 0 4px 8px rgba(44, 39, 56, 0.04), 0 20px 20px rgba(44, 39, 56, 0.04);
     overflow: hidden;
     position: absolute;
-    top: 56px;
+    top: 84px;
     z-index: 10;
 }
 
@@ -67,6 +70,8 @@
     font-size: 16px;
     outline: none;
     background-color: #FFF;
+    text-align: left;
+    padding-left: 16px;
 }
 
 .optionButton:hover, .optionButton:focus {

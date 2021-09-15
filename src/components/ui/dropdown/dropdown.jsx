@@ -39,7 +39,7 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
     return (
         <div className={styles.wrapper}>
             <h3 className={styles.title}>{title}</h3>
-            <div className={styles.field} onClick={fieldClickHandler}>
+            <div className={styles.field} onClick={fieldClickHandler} >
                 <button className={fieldButtonClasses.join(' ')} type='button'>
                     {chosenOption || title}
                 </button>
