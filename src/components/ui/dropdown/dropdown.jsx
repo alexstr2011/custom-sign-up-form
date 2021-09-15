@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {ReactComponent as ArrowDown} from '../../../images/arrow-down.svg';
 import styles from './dropdown.module.css';
 
@@ -15,7 +16,6 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
         return () => {
             window.removeEventListener('click', outsideClickHandler);
         };
-
     }, [setIsOpen]);
 
     const fieldClickHandler = (e) => {
@@ -65,6 +65,13 @@ const Dropdown = ({title, options, callback, chosenOption}) => {
             }
         </div>
     );
+}
+
+Dropdown.propTypes = {
+    title: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.string),
+    callback: PropTypes.func,
+    chosenOption: PropTypes.string
 }
 
 export default Dropdown;

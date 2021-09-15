@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {ReactComponent as CheckMark} from '../../../images/check-mark.svg';
 import styles from './checkbox.module.css';
 
@@ -19,6 +20,11 @@ const Checkbox = ({checked, callback}) => {
             <CheckMark className={classesIcon.join(' ')}/>
         </button>
     );
+}
+
+Checkbox.propTypes = {
+    checked: PropTypes.bool.isRequired,
+    callback: PropTypes.func.isRequired
 }
 
 export default Checkbox;

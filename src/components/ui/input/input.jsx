@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from './input.module.css';
 
 const Input = ({value, callback, title, placeholder, error, mt, mb, type='text'}) => {
@@ -25,6 +26,17 @@ const Input = ({value, callback, title, placeholder, error, mt, mb, type='text'}
             </label>
         </div>
     );
+}
+
+Input.propTypes = {
+    value: PropTypes.string.isRequired,
+    callback: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    placeholder: PropTypes.string,
+    error: PropTypes.string,
+    mt: PropTypes.string,
+    mb: PropTypes.string,
+    type: PropTypes.string
 }
 
 export default Input;
